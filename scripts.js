@@ -5,4 +5,3 @@ Create & call playRound function inside game() which keeps score and reports win
 Console.log() results of each round and winner at the end
 Use prompt() to get input from user
 */
-
