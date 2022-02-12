@@ -26,8 +26,23 @@ function computerPlay() {
 }
 
 // Create function gameRound that takes two parameters: playerSelection and computerSelection
-// ** MAYBE let computerSelection = computerPlay(); MAYBE
-
-function gameRound (playerSelection, computerSelection) {
-    
+// const computerSelection = computerPlay();
+function gameRound (computerSelection, playerSelection) {
+    if (computerSelection == playerSelection) {
+        return "Tie!";
+    } else if (
+        (computerSelection == 'Rock' && playerSelection == 'Scissors') ||
+        (computerSelection == 'Paper' && playerSelection == 'Rock') ||
+        (computerSelection == 'Scissors' && playerSelection == 'Paper')
+        ) {
+            return `You lose! ${computerSelection} beats ${playerSelection}!`;
+    } else if ( 
+        (computerSelection == 'Rock' && playerSelection == 'Paper') ||
+        (computerSelection == 'Paper' && playerSelection == 'Scissors') ||
+        (computerSelection == 'Scissors' && playerSelection == 'Rock')
+    ) {
+        return `You win! ${playerSelection} beats ${computerSelection}!`;
+    } else {
+        return `Please make a valid selection.`
+    }
 }
