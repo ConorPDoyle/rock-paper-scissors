@@ -18,6 +18,7 @@ function computerPlay() {
             return 'Paper';
         case 2:
             return 'Scissors';
+    }
 }
 
 // Create function gameRound that takes two parameters: playerSelection and computerSelection
