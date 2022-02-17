@@ -28,6 +28,9 @@ function computerPlay() {
 // Create function gameRound that takes two parameters: playerSelection and computerSelection
 // const computerSelection = computerPlay();
 function gameRound (computerSelection, playerSelection) {
+    console.log('Make your selection');
+    console.log(`The player has chosen ${playerSelection}`);
+    console.log(`The computer has chosen ${computerSelection}`);
     if (computerSelection == playerSelection) {
         return "Tie!";
     } else if (
@@ -35,14 +38,31 @@ function gameRound (computerSelection, playerSelection) {
         (computerSelection == 'Paper' && playerSelection == 'Rock') ||
         (computerSelection == 'Scissors' && playerSelection == 'Paper')
         ) {
+            ++computerScore;
             return `You lose! ${computerSelection} beats ${playerSelection}!`;
     } else if ( 
         (computerSelection == 'Rock' && playerSelection == 'Paper') ||
         (computerSelection == 'Paper' && playerSelection == 'Scissors') ||
         (computerSelection == 'Scissors' && playerSelection == 'Rock')
     ) {
+        ++computerScore;
         return `You win! ${playerSelection} beats ${computerSelection}!`;
     } else {
         return `Please make a valid selection.`
     }
 }
+
+
+
+function game(playerScore, computerScore) {
+    for (let i = 0; i < 5; i++) {
+        console.log("Round #" + i);
+        computerPlay();
+        gameRound(computerPlay, 'Rock');
+    }
+}
+
+//Initial score, prior to first game
+
+let playerScore = 0;
+let computerScore = 0;
