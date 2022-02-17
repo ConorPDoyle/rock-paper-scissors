@@ -6,27 +6,23 @@ Console.log() results of each round and winner at the end
 Use prompt() to get input from user
 */
 
+let playerScore = 0;
+let computerScore = 0;
 // Create function computerPlay that randomly returns rock, paper, scissors
 function computerPlay() {
-    // Select a random number from 0-2 (0, 1, 2)
     let randomInt = Math.floor(Math.random()*3);
-    // Assign random numbers to strings matching the computer's play
     switch (randomInt) {
         case 0:
-            play = 'Rock'; 
-            break;
+            return 'Rock'; 
         case 1:
-            play = 'Paper';
-            break;
+            return 'Paper';
         case 2:
-            play = 'Scissors';
-            break;
-    }
-    return play;
+            return 'Scissors';
 }
 
 // Create function gameRound that takes two parameters: playerSelection and computerSelection
-// const computerSelection = computerPlay();
+const computerSelection = computerPlay();
+const playerSelection = 'Rock';
 function gameRound (computerSelection, playerSelection) {
     console.log('Make your selection');
     console.log(`The player has chosen ${playerSelection}`);
@@ -61,8 +57,3 @@ function game(playerScore, computerScore) {
         gameRound(computerPlay, 'Rock');
     }
 }
-
-//Initial score, prior to first game
-
-let playerScore = 0;
-let computerScore = 0;
