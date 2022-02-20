@@ -35,14 +35,14 @@ function gameRound (computerSelection = computerPlay(), playerSelection = window
         (computerSelection == 'Paper' && playerSelection.toLowerCase() == 'rock') ||
         (computerSelection == 'Scissors' && playerSelection.toLowerCase() == 'paper')
         ) {
-            ++computerScore;
+            computerScore++;
             return `You lose! ${computerSelection} beats ${playerSelection}!`;
     } else if ( 
         (computerSelection == 'Rock' && playerSelection.toLowerCase() == 'paper') ||
         (computerSelection == 'Paper' && playerSelection.toLowerCase() == 'scissors') ||
         (computerSelection == 'Scissors' && playerSelection.toLowerCase() == 'rock')
     ) {
-        ++playerScore;
+        playerScore++;
         return `You win! ${computerSelection} loses to ${playerSelection}!`;
     } else {
         return `Please make a valid selection.`
@@ -51,11 +51,13 @@ function gameRound (computerSelection = computerPlay(), playerSelection = window
 
 
 
-const computerSelection = computerPlay()
 function game(playerScore = 0, computerScore = 0) {
     for (let i = 1; i < 6; i++) {
         console.log("Round #" + i);
-        gameRound();
         console.log(gameRound());
-    }
-}
+        }
+    //  Insert something here to print after game
+        } 
+
+
+ 
