@@ -22,24 +22,25 @@ function computerPlay() {
 }
 
 // Create function gameRound that takes two parameters: playerSelection and computerSelection
+// Default parameters get user inputs each time gameRound is called
 
 function gameRound (computerSelection = computerPlay(), playerSelection = window.prompt('Make your decision', 'Rock, Paper, Scissors...')) {
     console.log('Make your selection');
     console.log(`The player has chosen ${playerSelection}`);
     console.log(`The computer has chosen ${computerSelection}`);
-    if (computerSelection == playerSelection) {
+    if (computerSelection.toLowerCase == playerSelection.toLowerCase) {
         return "Tie!";
     } else if (
-        (computerSelection == 'Rock' && playerSelection == 'Scissors') ||
-        (computerSelection == 'Paper' && playerSelection == 'Rock') ||
-        (computerSelection == 'Scissors' && playerSelection == 'Paper')
+        (computerSelection == 'Rock' && playerSelection.toLowerCase == 'scissors') ||
+        (computerSelection == 'Paper' && playerSelection.toLowerCase == 'rock') ||
+        (computerSelection == 'Scissors' && playerSelection.toLowerCase == 'paper')
         ) {
             ++computerScore;
             return `You lose! ${computerSelection} beats ${playerSelection}!`;
     } else if ( 
-        (computerSelection == 'Rock' && playerSelection == 'Paper') ||
-        (computerSelection == 'Paper' && playerSelection == 'Scissors') ||
-        (computerSelection == 'Scissors' && playerSelection == 'Rock')
+        (computerSelection == 'Rock' && playerSelection.toLowerCase == 'paper') ||
+        (computerSelection == 'Paper' && playerSelection.toLowerCase == 'scissors') ||
+        (computerSelection == 'Scissors' && playerSelection.toLowerCase == 'rock')
     ) {
         ++playerScore;
         return `You win! ${playerSelection} beats ${computerSelection}!`;
