@@ -28,22 +28,22 @@ function gameRound (computerSelection = computerPlay(), playerSelection = window
     console.log('Make your selection');
     console.log(`The player has chosen ${playerSelection}`);
     console.log(`The computer has chosen ${computerSelection}`);
-    if (computerSelection.toLowerCase == playerSelection.toLowerCase) {
+    if (computerSelection.toLowerCase() == playerSelection.toLowerCase()) {
         return "Tie!";
     } else if (
-        (computerSelection == 'Rock' && playerSelection.toLowerCase == 'scissors') ||
-        (computerSelection == 'Paper' && playerSelection.toLowerCase == 'rock') ||
-        (computerSelection == 'Scissors' && playerSelection.toLowerCase == 'paper')
+        (computerSelection == 'Rock' && playerSelection.toLowerCase() == 'scissors') ||
+        (computerSelection == 'Paper' && playerSelection.toLowerCase() == 'rock') ||
+        (computerSelection == 'Scissors' && playerSelection.toLowerCase() == 'paper')
         ) {
             ++computerScore;
             return `You lose! ${computerSelection} beats ${playerSelection}!`;
     } else if ( 
-        (computerSelection == 'Rock' && playerSelection.toLowerCase == 'paper') ||
-        (computerSelection == 'Paper' && playerSelection.toLowerCase == 'scissors') ||
-        (computerSelection == 'Scissors' && playerSelection.toLowerCase == 'rock')
+        (computerSelection == 'Rock' && playerSelection.toLowerCase() == 'paper') ||
+        (computerSelection == 'Paper' && playerSelection.toLowerCase() == 'scissors') ||
+        (computerSelection == 'Scissors' && playerSelection.toLowerCase() == 'rock')
     ) {
         ++playerScore;
-        return `You win! ${playerSelection} beats ${computerSelection}!`;
+        return `You win! ${computerSelection} loses to ${playerSelection}!`;
     } else {
         return `Please make a valid selection.`
     }
@@ -52,9 +52,10 @@ function gameRound (computerSelection = computerPlay(), playerSelection = window
 
 
 const computerSelection = computerPlay()
-function game(playerScore, computerScore) {
+function game(playerScore = 0, computerScore = 0) {
     for (let i = 1; i < 6; i++) {
         console.log("Round #" + i);
-        console.log(gameRound(computerPlay(), 'Rock'));
+        gameRound();
+        console.log(gameRound());
     }
 }
