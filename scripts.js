@@ -24,7 +24,8 @@ function computerPlay() {
 // Create function gameRound that takes two parameters: playerSelection and computerSelection
 // Default parameters get user inputs each time gameRound is called
 
-function gameRound (computerSelection = computerPlay(), playerSelection = window.prompt('Make your decision', 'Rock, Paper, Scissors...')) {
+function gameRound (computerSelection = computerPlay(), playerSelection = window.prompt
+        ('Make your decision', 'Rock, Paper, Scissors...')) {
     console.log('Make your selection');
     console.log(`The player has chosen ${playerSelection}`);
     console.log(`The computer has chosen ${computerSelection}`);
