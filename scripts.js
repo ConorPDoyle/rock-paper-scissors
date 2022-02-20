@@ -51,12 +51,18 @@ function gameRound (computerSelection = computerPlay(), playerSelection = window
 
 
 
-function game(playerScore = 0, computerScore = 0) {
+function game() {
     for (let i = 1; i < 6; i++) {
         console.log("Round #" + i);
         console.log(gameRound());
         }
-    //  Insert something here to print after game
+    if (playerScore > computerScore) {
+        console.log(`You win! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
+    } else if (computerScore > playerScore) {
+        console.log(`You lose! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
+    } else if (computerScore == playerScore) {
+        console.log(`It was a tie! The final score was Computer: ${computerScore} & Player: ${playerScore}!`);
+    }
         } 
 
 
