@@ -1,5 +1,5 @@
 /* PSEUDOCODE
-Create function computerPlay that randomly returns 'Rock', 'Paper', or 'Scissors'
+Create function getComputerChoice that randomly returns 'Rock', 'Paper', or 'Scissors'
 Create function gameRound that takes two perameters: playerSelection and computerSelection
 Create & call playRound function inside  which keeps score and reports winner
 Console.log() results of each round and winner at the end
@@ -8,8 +8,8 @@ Use prompt() to get input from user
 
 let playerScore = 0;
 let computerScore = 0;
-// Create function computerPlay that randomly returns rock, paper, scissors;
-function computerPlay() {
+// Create function getComputerChoice that randomly returns rock, paper, scissors;
+function getComputerChoice() {
     let randomInt = Math.floor(Math.random()*3);
     switch (randomInt) {
         case 0:
@@ -24,7 +24,7 @@ function computerPlay() {
 // Create function gameRound that takes two parameters: playerSelection and computerSelection
 // Default parameters get user inputs each time gameRound is called
 
-function gameRound (computerSelection = computerPlay(), playerSelection = 
+function playRound (computerSelection = getComputerChoice(), playerSelection = 
         window.prompt ('Make your decision', 'Rock, Paper, Scissors...')) {
     console.log('Make your selection');
     console.log(`The player has chosen ${playerSelection}`);
@@ -52,10 +52,10 @@ function gameRound (computerSelection = computerPlay(), playerSelection =
 
 
 
-function game() {
+function playGame() {
     for (let i = 1; i < 6; i++) {
         console.log("Round #" + i);
-        console.log(gameRound());
+        console.log(playRound());
         }
     if (playerScore > computerScore) {
         console.log(`You win! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
