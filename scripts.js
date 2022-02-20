@@ -23,7 +23,7 @@ function computerPlay() {
 
 // Create function gameRound that takes two parameters: playerSelection and computerSelection
 
-function gameRound (computerSelection, playerSelection) {
+function gameRound (computerSelection = computerPlay(), playerSelection = window.prompt('Make your decision', 'Rock, Paper, Scissors...')) {
     console.log('Make your selection');
     console.log(`The player has chosen ${playerSelection}`);
     console.log(`The computer has chosen ${computerSelection}`);
@@ -49,7 +49,7 @@ function gameRound (computerSelection, playerSelection) {
 }
 
 
-const playerSelection = 'Rock';
+
 const computerSelection = computerPlay()
 function game(playerScore, computerScore) {
     for (let i = 1; i < 6; i++) {
