@@ -8,6 +8,7 @@ Use prompt() to get input from user
 
 let playerScore = 0;
 let computerScore = 0;
+let round = 1;
 // Create function getComputerChoice that randomly returns rock, paper, scissors;
 function getComputerChoice() {
     let randomInt = Math.floor(Math.random()*3);
@@ -37,6 +38,7 @@ function playRound (computerSelection = getComputerChoice(), playerSelection =
         (computerSelection == 'Scissors' && playerSelection.toLowerCase() == 'paper')
         ) {
             computerScore++;
+            round++
             return `You lose! ${computerSelection} beats ${playerSelection}!`;
     } else if ( 
         (computerSelection == 'Rock' && playerSelection.toLowerCase() == 'paper') ||
@@ -44,6 +46,7 @@ function playRound (computerSelection = getComputerChoice(), playerSelection =
         (computerSelection == 'Scissors' && playerSelection.toLowerCase() == 'rock')
     ) {
         playerScore++;
+        round++
         return `You win! ${computerSelection} loses to ${playerSelection}!`;
     } else {
         return `Please make a valid selection.`
@@ -53,8 +56,8 @@ function playRound (computerSelection = getComputerChoice(), playerSelection =
 
 
 function playGame() {
-    for (let i = 1; i < 6; i++) {
-        console.log("Round #" + i);
+    for (round; round < 6; ) {
+        console.log("Round #" + round);
         console.log(playRound());
         }
     if (playerScore > computerScore) {
