@@ -1,12 +1,53 @@
 body {
-    /* background-image: url(./images/wackenfest.jpg);
-    background-size: 130%; */
     font-family: 'Metal Mania', cursive;
-    font-size: larger;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 40px
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+
 }
 
 .card {
+    background:rgba(0,0,0,0.3);
     border: 4px solid black;
     border-radius: 5px;
+    font-size: 2rem;
     margin: 1rem;
+    text-align: center;
+    /* transition: color 0.02s, border-color 0.02s; */
+    width: 120px;
+}
+
+.card:hover {
+    color:#808080;
+    border-color: #808080; /* add this as an event listener later */
+}
+
+.scoreboard {
+    justify-content: space-between;
+    width: 400px;
+    font-size: 1.75rem;
+}
+
+.cards,
+.play-report,
+.scoreboard {
+    display: flex;
+}
+
+.toggle {
+    display: none; /*shows actual play field once begin button is pressed*/
 }
