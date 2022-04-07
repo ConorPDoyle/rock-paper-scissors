@@ -1,15 +1,27 @@
-/* PSEUDOCODE
-Create function getComputerChoice that randomly returns 'Rock', 'Paper', or 'Scissors'
-Create function gameRound that takes two perameters: playerSelection and computerSelection
-Create & call playRound function inside  which keeps score and reports winner
-Console.log() results of each round and winner at the end
-Use prompt() to get input from user
-*/
+const start = document.querySelector('#start');
+const cards = document.querySelector('.cards');
+const playReport = document.querySelector('.play-report');
+const scoreboard = document.querySelector('.scoreboard');
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+rock.addEventListener('click', () => 'Rock');
+paper.addEventListener('click', () => 'Paper');
+scissors.addEventListener('click', () => 'Scissors');
 
 let playerScore = 0;
 let computerScore = 0;
 let round = 1;
-// Create function getComputerChoice that randomly returns rock, paper, scissors;
+
+start.addEventListener('click', ()=> {
+    start.classList.toggle('toggle');
+    cards.classList.toggle('toggle');
+    playReport.classList.toggle('toggle');
+    // playGame();
+})
+
 function getComputerChoice() {
     let randomInt = Math.floor(Math.random()*3);
     switch (randomInt) {
@@ -22,28 +34,21 @@ function getComputerChoice() {
     }
 }
 
-// Create function gameRound that takes two parameters: playerSelection and computerSelection
-// Default parameters get user inputs each time gameRound is called
-
-function playRound (computerSelection = getComputerChoice(), playerSelection = 
-        window.prompt ('Make your decision', 'Rock, Paper, Scissors...')) {
-    console.log('Make your selection');
-    console.log(`The player has chosen ${playerSelection}`);
-    console.log(`The computer has chosen ${computerSelection}`);
-    if (computerSelection.toLowerCase() == playerSelection.toLowerCase()) {
+function playRound (computerSelection = getComputerChoice(), playerSelection) {
+    if (computerSelection == playerSelection) {
         return "Tie!";
     } else if (
-        (computerSelection == 'Rock' && playerSelection.toLowerCase() == 'scissors') ||
-        (computerSelection == 'Paper' && playerSelection.toLowerCase() == 'rock') ||
-        (computerSelection == 'Scissors' && playerSelection.toLowerCase() == 'paper')
+        (computerSelection == 'Rock' && playerSelection == 'scissors') ||
+        (computerSelection == 'Paper' && playerSelection == 'rock') ||
+        (computerSelection == 'Scissors' && playerSelection == 'paper')
         ) {
             computerScore++;
             round++
             return `You lose! ${computerSelection} beats ${playerSelection}!`;
     } else if ( 
-        (computerSelection == 'Rock' && playerSelection.toLowerCase() == 'paper') ||
-        (computerSelection == 'Paper' && playerSelection.toLowerCase() == 'scissors') ||
-        (computerSelection == 'Scissors' && playerSelection.toLowerCase() == 'rock')
+        (computerSelection == 'Rock' && playerSelection == 'paper') ||
+        (computerSelection == 'Paper' && playerSelection == 'scissors') ||
+        (computerSelection == 'Scissors' && playerSelection == 'rock')
     ) {
         playerScore++;
         round++
