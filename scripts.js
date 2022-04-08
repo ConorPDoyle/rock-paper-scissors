@@ -77,7 +77,6 @@ function play (computerSelection, playerSelection) {
     if (playerScore == 1 || computerScore == 1) {
         scoreboard.classList.remove('toggle'); //show scoreboard after a point is scored
     }
-
     if (playerScore == 5 || computerScore == 5) {
         endOfGame();
      } 
