@@ -71,6 +71,10 @@ function play (computerSelection, playerSelection) {
         return `Please make a valid selection.`
     }
 
+    if (playerScore == 1 || computerScore == 1) {
+        scoreboard.classList.remove('toggle'); //show scoreboard after a point is scored
+    }
+
     if (playerScore == 5 || computerScore == 5) {
         endOfGame();
      } 
@@ -78,7 +82,8 @@ function play (computerSelection, playerSelection) {
 }
 
 function endOfGame() {
-
+    document.querySelector('h2').textContent = `GAME OVER!`;
+    cards.classList.toggle('toggle');
     }
 
 // function playGame() {
