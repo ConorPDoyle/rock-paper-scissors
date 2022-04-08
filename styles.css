@@ -16,6 +16,11 @@ h2 {
     background:rgba(0,0,0,0.5);
 }
 
+h3 {
+    font-size: 30px;
+    background:rgba(0,0,0,0.5);
+}
+
 #main {
     background-image: url("images/wackenfest.jpg");
     background-size: cover;
@@ -24,7 +29,7 @@ h2 {
     align-items: center;
     justify-content: center;
     width: 800px;
-    min-height: 550px;
+    min-height: 850px;
 }
 
 .card {
@@ -42,6 +47,16 @@ h2 {
 .card:hover {
     color:#808080;
     border-color: #808080; /* add this as an event listener later */
+}
+
+.click {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+}
+
+.last-round {
+    margin-bottom: -30px;
 }
 
 .scoreboard {

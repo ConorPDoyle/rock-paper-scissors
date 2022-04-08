@@ -1,6 +1,8 @@
 const start = document.querySelector('#start');
 const cards = document.querySelector('.cards');
 const intro = document.querySelector('.intro');
+const lastRound = document.querySelector('.last-round');
+const laRoText = document.querySelector('#last-round-text')
 const scoreboard = document.querySelector('.scoreboard');
 
 const rock = document.querySelector('#rock');
@@ -11,14 +13,17 @@ let playerSelection = '';
 rock.addEventListener('click', () => {
     playerSelection = 'Rock';
     play(getComputerChoice(), playerSelection);
+    lastRound.classList.remove('toggle');
 });
 paper.addEventListener('click', () => {
     playerSelection = 'Paper';
     play(getComputerChoice(), playerSelection);
+    lastRound.classList.remove('toggle');
 });
 scissors.addEventListener('click', () => {
     playerSelection = 'Scissors';
     play(getComputerChoice(), playerSelection);
+    lastRound.classList.remove('toggle');
 });
 
 //UI
@@ -50,6 +55,7 @@ let round = 1;
 function play (computerSelection, playerSelection) {
     //GAME LOGIC
     if (computerSelection == playerSelection) {
+        laRoText.textContent = `The computer played ${computerSelection}`;
         document.querySelector('h2').textContent = "Tie!";
     } else if (
         (computerSelection == 'Rock' && playerSelection == 'Scissors') ||
@@ -58,6 +64,7 @@ function play (computerSelection, playerSelection) {
         ) {
             computerScore++;
             round++
+            laRoText.textContent = `The computer played ${computerSelection}`;
             document.querySelector('h2').textContent = `You lose! ${computerSelection} beats ${playerSelection}!`;
     } else if ( 
         (computerSelection == 'Rock' && playerSelection == 'Paper') ||
@@ -66,6 +73,7 @@ function play (computerSelection, playerSelection) {
     ) {
         playerScore++;
         round++
+        laRoText.textContent = `The computer played ${computerSelection}`;
         document.querySelector('h2').textContent = `You win! ${computerSelection} loses to ${playerSelection}!`;
     } else {
         return `Please make a valid selection.`
