@@ -71,6 +71,9 @@ function play (computerSelection, playerSelection) {
         return `Please make a valid selection.`
     }
 
+    document.querySelector('.comp-score').textContent = computerScore
+    document.querySelector('.player-score').textContent = playerScore
+
     if (playerScore == 1 || computerScore == 1) {
         scoreboard.classList.remove('toggle'); //show scoreboard after a point is scored
     }
