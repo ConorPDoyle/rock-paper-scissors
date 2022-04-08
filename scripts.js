@@ -1,6 +1,6 @@
 const start = document.querySelector('#start');
 const cards = document.querySelector('.cards');
-const playReport = document.querySelector('.play-report');
+const intro = document.querySelector('.intro');
 const scoreboard = document.querySelector('.scoreboard');
 
 const rock = document.querySelector('#rock');
