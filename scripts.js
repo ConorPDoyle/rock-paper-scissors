@@ -1,5 +1,6 @@
 const start = document.querySelector('#start');
-const cards = document.querySelector('.cards');
+const choices = document.querySelector('.choices');
+const cards = document.querySelectorAll('.card');
 const intro = document.querySelector('.intro');
 const lastRound = document.querySelector('.last-round');
 const laRoText = document.querySelector('#last-round-text')
@@ -14,25 +15,39 @@ rock.addEventListener('click', () => {
     playerSelection = 'Rock';
     play(getComputerChoice(), playerSelection);
     lastRound.classList.remove('toggle');
+    cards.forEach(card => {
+        card.classList.remove('click');
+    })
+    rock.classList.add('click');
 });
 paper.addEventListener('click', () => {
     playerSelection = 'Paper';
     play(getComputerChoice(), playerSelection);
     lastRound.classList.remove('toggle');
+    cards.forEach(card => {
+        card.classList.remove('click');
+    })
+    paper.classList.add('click');
 });
 scissors.addEventListener('click', () => {
     playerSelection = 'Scissors';
     play(getComputerChoice(), playerSelection);
     lastRound.classList.remove('toggle');
+    cards.forEach(card => {
+        card.classList.remove('click');
+    })
+    scissors.classList.add('click');
 });
 
 //UI
 
 start.addEventListener('click', ()=> {
     start.classList.toggle('toggle');
-    cards.classList.toggle('toggle');
+    choices.classList.toggle('toggle');
     intro.classList.toggle('toggle');
 })
+
+
 
 //GAME LOGIC
 
