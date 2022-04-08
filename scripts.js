@@ -7,14 +7,18 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
+let playerSelection = '';
 rock.addEventListener('click', () => {
-    play(getComputerChoice(), 'Rock');
+    playerSelection = 'Rock';
+    play(getComputerChoice(), playerSelection);
 });
 paper.addEventListener('click', () => {
-    play(getComputerChoice(), 'Paper');
+    playerSelection = 'Paper';
+    play(getComputerChoice(), playerSelection);
 });
 scissors.addEventListener('click', () => {
-    play(getComputerChoice(), 'Scissors');
+    playerSelection = 'Scissors';
+    play(getComputerChoice(), playerSelection);
 });
 
 //UI
@@ -22,7 +26,7 @@ scissors.addEventListener('click', () => {
 start.addEventListener('click', ()=> {
     start.classList.toggle('toggle');
     cards.classList.toggle('toggle');
-    playReport.classList.toggle('toggle');
+    intro.classList.toggle('toggle');
 })
 
 //GAME LOGIC
