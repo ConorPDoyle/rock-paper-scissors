@@ -41,6 +41,10 @@ function getComputerChoice() {
     }
 }
 
+let playerScore = 0;
+let computerScore = 0;
+let round = 1;
+
 function playRound (computerSelection = getComputerChoice(), playerSelection) {
     if (computerSelection == playerSelection) {
         return "Tie!";
@@ -64,10 +68,6 @@ function playRound (computerSelection = getComputerChoice(), playerSelection) {
         return `Please make a valid selection.`
     }
 }
-
-let playerScore = 0;
-let computerScore = 0;
-let round = 1;
 
 function playGame() {
     for (round; round < 6; ) {
