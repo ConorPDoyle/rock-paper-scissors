@@ -7,18 +7,14 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
-let playerSelection = '';
 rock.addEventListener('click', () => {
-    playerSelection = 'Rock';
-    play(getComputerChoice(), playerSelection);
+    play(getComputerChoice(), 'Rock');
 });
 paper.addEventListener('click', () => {
-    playerSelection = 'Paper';
-    play(getComputerChoice(), playerSelection);
+    play(getComputerChoice(), 'Paper');
 });
 scissors.addEventListener('click', () => {
-    playerSelection = 'Scissors';
-    play(getComputerChoice(), playerSelection);
+    play(getComputerChoice(), 'Scissors');
 });
 
 //UI
