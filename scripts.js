@@ -48,7 +48,7 @@ let computerScore = 0;
 let round = 1;
 
 function play (computerSelection, playerSelection) {
-
+    //GAME LOGIC
     if (computerSelection == playerSelection) {
         document.querySelector('h2').textContent = "Tie!";
     } else if (
@@ -70,10 +70,10 @@ function play (computerSelection, playerSelection) {
     } else {
         return `Please make a valid selection.`
     }
-
+    //SHOW SCORE ON SCOREBOARD
     document.querySelector('.comp-score').textContent = computerScore
     document.querySelector('.player-score').textContent = playerScore
-
+    
     if (playerScore == 1 || computerScore == 1) {
         scoreboard.classList.remove('toggle'); //show scoreboard after a point is scored
     }
