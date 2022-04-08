@@ -108,5 +108,5 @@ function play (computerSelection, playerSelection) {
 
 function endOfGame() {
     document.querySelector('h2').textContent = `GAME OVER!`;
-    cards.classList.toggle('toggle');
+    choices.classList.toggle('toggle');
     }
