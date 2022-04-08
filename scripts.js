@@ -10,12 +10,15 @@ const scissors = document.querySelector('#scissors');
 let playerSelection = '';
 rock.addEventListener('click', () => {
     playerSelection = 'Rock';
+    play(getComputerChoice(), playerSelection);
 });
 paper.addEventListener('click', () => {
     playerSelection = 'Paper';
+    play(getComputerChoice(), playerSelection);
 });
 scissors.addEventListener('click', () => {
     playerSelection = 'Scissors';
+    play(getComputerChoice(), playerSelection);
 });
 
 //UI
@@ -24,7 +27,6 @@ start.addEventListener('click', ()=> {
     start.classList.toggle('toggle');
     cards.classList.toggle('toggle');
     playReport.classList.toggle('toggle');
-    playRound();
 })
 
 //GAME LOGIC
@@ -45,43 +47,53 @@ let playerScore = 0;
 let computerScore = 0;
 let round = 1;
 
-function playRound (computerSelection = getComputerChoice(), playerSelection) {
+function play (computerSelection, playerSelection) {
+
     if (computerSelection == playerSelection) {
-        return "Tie!";
+        document.querySelector('h2').textContent = "Tie!";
     } else if (
-        (computerSelection == 'Rock' && playerSelection == 'scissors') ||
-        (computerSelection == 'Paper' && playerSelection == 'rock') ||
-        (computerSelection == 'Scissors' && playerSelection == 'paper')
+        (computerSelection == 'Rock' && playerSelection == 'Scissors') ||
+        (computerSelection == 'Paper' && playerSelection == 'Rock') ||
+        (computerSelection == 'Scissors' && playerSelection == 'Paper')
         ) {
             computerScore++;
             round++
-            return `You lose! ${computerSelection} beats ${playerSelection}!`;
+            document.querySelector('h2').textContent = `You lose! ${computerSelection} beats ${playerSelection}!`;
     } else if ( 
-        (computerSelection == 'Rock' && playerSelection == 'paper') ||
-        (computerSelection == 'Paper' && playerSelection == 'scissors') ||
-        (computerSelection == 'Scissors' && playerSelection == 'rock')
+        (computerSelection == 'Rock' && playerSelection == 'Paper') ||
+        (computerSelection == 'Paper' && playerSelection == 'Scissors') ||
+        (computerSelection == 'Scissors' && playerSelection == 'Rock')
     ) {
         playerScore++;
         round++
-        return `You win! ${computerSelection} loses to ${playerSelection}!`;
+        document.querySelector('h2').textContent = `You win! ${computerSelection} loses to ${playerSelection}!`;
     } else {
         return `Please make a valid selection.`
     }
+
+    if (playerScore == 5 || computerScore == 5) {
+        endOfGame();
+     } 
+    
 }
 
-function playGame() {
-    for (round; round < 6; ) {
-        console.log("Round #" + round);
-        console.log(playRound());
-        }
-    if (playerScore > computerScore) {
-        console.log(`You win! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
-    } else if (computerScore > playerScore) {
-        console.log(`You lose! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
-    } else if (computerScore == playerScore) {
-        console.log(`It was a tie! The final score was Computer: ${computerScore} & Player: ${playerScore}!`);
+function endOfGame() {
+
     }
-        } 
+
+// function playGame() {
+//     for (round; round < 6; ) {
+//         console.log("Round #" + round);
+//         console.log(playRound());
+//         }
+//     if (playerScore > computerScore) {
+//         console.log(`You win! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
+//     } else if (computerScore > playerScore) {
+//         console.log(`You lose! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
+//     } else if (computerScore == playerScore) {
+//         console.log(`It was a tie! The final score was Computer: ${computerScore} & Player: ${playerScore}!`);
+//     }
+//         } 
 
 
  
