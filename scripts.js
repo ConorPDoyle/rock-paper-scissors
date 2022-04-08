@@ -84,20 +84,3 @@ function endOfGame() {
     document.querySelector('h2').textContent = `GAME OVER!`;
     cards.classList.toggle('toggle');
     }
-
-// function playGame() {
-//     for (round; round < 6; ) {
-//         console.log("Round #" + round);
-//         console.log(playRound());
-//         }
-//     if (playerScore > computerScore) {
-//         console.log(`You win! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
-//     } else if (computerScore > playerScore) {
-//         console.log(`You lose! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
-//     } else if (computerScore == playerScore) {
-//         console.log(`It was a tie! The final score was Computer: ${computerScore} & Player: ${playerScore}!`);
-//     }
-//         } 
-
-
- 
