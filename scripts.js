@@ -7,20 +7,27 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
-rock.addEventListener('click', () => 'Rock');
-paper.addEventListener('click', () => 'Paper');
-scissors.addEventListener('click', () => 'Scissors');
+let playerSelection = '';
+rock.addEventListener('click', () => {
+    playerSelection = 'Rock';
+});
+paper.addEventListener('click', () => {
+    playerSelection = 'Paper';
+});
+scissors.addEventListener('click', () => {
+    playerSelection = 'Scissors';
+});
 
-let playerScore = 0;
-let computerScore = 0;
-let round = 1;
+//UI
 
 start.addEventListener('click', ()=> {
     start.classList.toggle('toggle');
     cards.classList.toggle('toggle');
     playReport.classList.toggle('toggle');
-    // playGame();
+    playRound();
 })
+
+//GAME LOGIC
 
 function getComputerChoice() {
     let randomInt = Math.floor(Math.random()*3);
@@ -58,7 +65,9 @@ function playRound (computerSelection = getComputerChoice(), playerSelection) {
     }
 }
 
-
+let playerScore = 0;
+let computerScore = 0;
+let round = 1;
 
 function playGame() {
     for (round; round < 6; ) {
