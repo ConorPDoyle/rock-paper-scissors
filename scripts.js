@@ -68,7 +68,6 @@ let computerScore = 0;
 let round = 1;
 
 function play (computerSelection, playerSelection) {
-    //GAME LOGIC
     if (computerSelection == playerSelection) {
         laRoText.textContent = `The computer played ${computerSelection}`;
         document.querySelector('h2').textContent = "Tie!";
@@ -93,7 +92,8 @@ function play (computerSelection, playerSelection) {
     } else {
         return `Please make a valid selection.`
     }
-    //SHOW SCORE ON SCOREBOARD
+   
+//SHOW SCORE ON SCOREBOARD
     document.querySelector('.comp-score').textContent = computerScore
     document.querySelector('.player-score').textContent = playerScore
     
