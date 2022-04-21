@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="scripts.js"></script> 
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script> 
     <title>Rock Paper Scissors</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet"> 
+    <!-- Metal Mania Google Font -->
+
 </head>
 <body>
-    
+    <div id="main">
+        <div id="title"><h1>Rock Paper Scissors</h1></div>
+        <div class ="card" id="start">Click to begin!</div>
+        <div class="choices toggle">
+            <div class="card" id="rock">Rock</div>
+            <div class="card" id="paper">Paper</div>
+            <div class="card" id="scissors">Scissors</div>
+        </div>
+        <div class="last-round" toggle><h3 id="last-round-text"></h3></div>
+        <div class="intro toggle"><h2>Make your selection...</h2></div>
+        <div class="scoreboard toggle">
+            <div class="score-card">Your Score
+                <div class="player-score"></div>
+            </div>
+            <div class="score-card">Computer Score
+                <div class="comp-score"></div>
+            </div>
+        </div>
+    </div>
+    <audio autoplay controls>
+        <source src="sounds/The-Final-Countdown.ogg" type="audio/ogg">
+    </audio>
+      
 </body>
 </html>

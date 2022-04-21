@@ -1,14 +1,56 @@
-/* PSEUDOCODE
-Create function getComputerChoice that randomly returns 'Rock', 'Paper', or 'Scissors'
-Create function gameRound that takes two perameters: playerSelection and computerSelection
-Create & call playRound function inside  which keeps score and reports winner
-Console.log() results of each round and winner at the end
-Use prompt() to get input from user
-*/
+const start = document.querySelector('#start');
+const choices = document.querySelector('.choices');
+const cards = document.querySelectorAll('.card');
+const intro = document.querySelector('.intro');
+const lastRound = document.querySelector('.last-round');
+const laRoText = document.querySelector('#last-round-text')
+const scoreboard = document.querySelector('.scoreboard');
 
-let playerScore = 0;
-let computerScore = 0;
-// Create function getComputerChoice that randomly returns rock, paper, scissors;
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+let playerSelection = '';
+rock.addEventListener('click', () => {
+    playerSelection = 'Rock';
+    play(getComputerChoice(), playerSelection);
+    lastRound.classList.remove('toggle');
+    cards.forEach(card => {
+        card.classList.remove('click');
+    })
+    rock.classList.add('click');
+});
+paper.addEventListener('click', () => {
+    playerSelection = 'Paper';
+    play(getComputerChoice(), playerSelection);
+    lastRound.classList.remove('toggle');
+    cards.forEach(card => {
+        card.classList.remove('click');
+    })
+    paper.classList.add('click');
+});
+scissors.addEventListener('click', () => {
+    playerSelection = 'Scissors';
+    play(getComputerChoice(), playerSelection);
+    lastRound.classList.remove('toggle');
+    cards.forEach(card => {
+        card.classList.remove('click');
+    })
+    scissors.classList.add('click');
+});
+
+//UI
+
+start.addEventListener('click', ()=> {
+    start.classList.toggle('toggle');
+    choices.classList.toggle('toggle');
+    intro.classList.toggle('toggle');
+})
+
+
+
+//GAME LOGIC
+
 function getComputerChoice() {
     let randomInt = Math.floor(Math.random()*3);
     switch (randomInt) {
@@ -21,50 +63,50 @@ function getComputerChoice() {
     }
 }
 
-// Create function gameRound that takes two parameters: playerSelection and computerSelection
-// Default parameters get user inputs each time gameRound is called
+let playerScore = 0;
+let computerScore = 0;
+let round = 1;
 
-function playRound (computerSelection = getComputerChoice(), playerSelection = 
-        window.prompt ('Make your decision', 'Rock, Paper, Scissors...')) {
-    console.log('Make your selection');
-    console.log(`The player has chosen ${playerSelection}`);
-    console.log(`The computer has chosen ${computerSelection}`);
-    if (computerSelection.toLowerCase() == playerSelection.toLowerCase()) {
-        return "Tie!";
+function play (computerSelection, playerSelection) {
+    if (computerSelection == playerSelection) {
+        laRoText.textContent = `The computer played ${computerSelection}`;
+        document.querySelector('h2').textContent = "Tie!";
     } else if (
-        (computerSelection == 'Rock' && playerSelection.toLowerCase() == 'scissors') ||
-        (computerSelection == 'Paper' && playerSelection.toLowerCase() == 'rock') ||
-        (computerSelection == 'Scissors' && playerSelection.toLowerCase() == 'paper')
+        (computerSelection == 'Rock' && playerSelection == 'Scissors') ||
+        (computerSelection == 'Paper' && playerSelection == 'Rock') ||
+        (computerSelection == 'Scissors' && playerSelection == 'Paper')
         ) {
             computerScore++;
-            return `You lose! ${computerSelection} beats ${playerSelection}!`;
+            round++
+            laRoText.textContent = `The computer played ${computerSelection}`;
+            document.querySelector('h2').textContent = `You lose! ${computerSelection} beats ${playerSelection}!`;
     } else if ( 
-        (computerSelection == 'Rock' && playerSelection.toLowerCase() == 'paper') ||
-        (computerSelection == 'Paper' && playerSelection.toLowerCase() == 'scissors') ||
-        (computerSelection == 'Scissors' && playerSelection.toLowerCase() == 'rock')
+        (computerSelection == 'Rock' && playerSelection == 'Paper') ||
+        (computerSelection == 'Paper' && playerSelection == 'Scissors') ||
+        (computerSelection == 'Scissors' && playerSelection == 'Rock')
     ) {
         playerScore++;
-        return `You win! ${computerSelection} loses to ${playerSelection}!`;
+        round++
+        laRoText.textContent = `The computer played ${computerSelection}`;
+        document.querySelector('h2').textContent = `You win! ${computerSelection} loses to ${playerSelection}!`;
     } else {
         return `Please make a valid selection.`
     }
+   
+//SHOW SCORE ON SCOREBOARD
+    document.querySelector('.comp-score').textContent = computerScore
+    document.querySelector('.player-score').textContent = playerScore
+    
+    if (playerScore == 1 || computerScore == 1) {
+        scoreboard.classList.remove('toggle'); //show scoreboard after a point is scored
+    }
+    if (playerScore == 5 || computerScore == 5) {
+        endOfGame();
+     } 
+    
 }
 
-
-
-function playGame() {
-    for (let i = 1; i < 6; i++) {
-        console.log("Round #" + i);
-        console.log(playRound());
-        }
-    if (playerScore > computerScore) {
-        console.log(`You win! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
-    } else if (computerScore > playerScore) {
-        console.log(`You lose! The final score was Computer: ${computerScore} & Player: ${playerScore}`);
-    } else if (computerScore == playerScore) {
-        console.log(`It was a tie! The final score was Computer: ${computerScore} & Player: ${playerScore}!`);
+function endOfGame() {
+    document.querySelector('h2').textContent = `GAME OVER!`;
+    choices.classList.toggle('toggle');
     }
-        } 
-
-
- 
